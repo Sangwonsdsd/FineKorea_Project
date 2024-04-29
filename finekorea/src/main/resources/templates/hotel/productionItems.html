@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생산품목</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/productionItems/productionItems.css}" >
+    <!--JS-->
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" th:src="@{/js/productionItems.js}"></script>
+</head>
+<body>
+    <div th:insert="~{common/header.html}" id="header"></div>
+    
+    <!--photo-->
+    <div class="photo-container">
+        <img class="photo-main" th:src="@{/image/logoImg/배경사진.jpg}" alt="배경사진">
+        
+        <div class="aboutUs-box1">
+            <div class="aboutUs-box1-content">
+                <div class="aboutUs-box1-content-div">파인코리아는 맞춤제작이 가능합니다. (전화상담/홈페이지 견적문의 상담)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="production-container">
+        <div class="production-box2">
+            차렵이불
+            <a th:if="${session.admin != null}" th:href="@{/guest/production/writeForm}" class="production-write-btn">
+                글작성
+            </a>
+        </div>
+    </div>
+    <button id="upbutton" class="upbutton"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
+        <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"/>
+      </svg>
+    </button>
+    <div class="itemlist-container">
+        <div class="item">
+            <div class="item-img">
+                <div class="item-img-container">
+                    <div class="carousel" id="carousel1">
+                      <div class="carousel-cell1"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/001샤인 세미마이크로차렵세트(그레이).jpg}" alt="세미마이크로차렵세트(그레이)" /></div>
+                      <div class="carousel-cell1"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/001샤인 세미마이크로차렵세트(블루).jpg}" alt="세미마이크로차렵세트(블루)" /></div>
+                    </div>
+                </div>
+                <div class="prev-button" onclick="prev(1)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg></div>
+                <div class="next-button" onclick="next(1)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg></div>
+            </div>
+            <div class="item-content">
+                <h1 class="item-h1">샤인 세미마이크로 차렵세트<br>(그레이.블루)</h1>
+                <br>
+                <div class="item-text">차렵: S(150×195), Q(190×220)±5cm</div>
+                <div class="item-text">카페트: S(110×200), Q(150x210)±5cm</div>
+                <div class="item-text">베개커버: 40×60, 50×70±3cm</div>
+            </div>
+        </div>
+    </div>
+    <div class="itemlist-container">
+        <div class="item">
+            <div class="item-content">
+                <h1 class="item-h1">시슬리 세미마이크로 차렵세트<br>
+                    (그레이.블루.핑크)</h1>
+                <br>
+                <div class="item-text">차렵: S(150×195), Q(190×220)±5cm</div>
+                <div class="item-text">카페트: S(110×200), Q(150x210)±5cm</div>
+                <div class="item-text">베개커버: 40×60, 50×70±3cm</div>
+            </div>
+            <div class="item-img">
+                <div class="item-img-container">
+                    <div class="carousel" id="carousel2">
+                      <div class="carousel-cell2"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/002시슬리세미마이크로차렵세트(그레이,블루,핑크)1.jpg}" alt="시슬리세미마이크로차렵세트(그레이)" /></div>
+                      <div class="carousel-cell2"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/002시슬리세미마이크로차렵세트(그레이,블루,핑크)2.jpg}" alt="시슬리세미마이크로차렵세트(블루)" /></div>
+                      <div class="carousel-cell2"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/002시슬리세미마이크로차렵세트(그레이,블루,핑크)3.jpg}" alt="시슬리세미마이크로차렵세트(핑크)" /></div>
+                    </div>
+                </div>
+                <div class="prev-button" onclick="prev(2)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg></div>
+                <div class="next-button" onclick="next(2)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg></div>
+            </div>
+        </div>
+    </div>
+    <div class="itemlist-container">
+        <div class="item">
+            <div class="item-img">
+                <div class="item-img-container">
+                    <div class="carousel" id="carousel3">
+                      <div class="carousel-cell3"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/003데코세미마이크로차렵세트(그레이,블루,핑크).jpg}" alt="데코세미마이크로차렵세트" /></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-content">
+                <h1 class="item-h1">데코 세미마이크로 차렵세트<br>(그레이.블루.핑크)</h1>
+                <br>
+                <div class="item-text">차렵: S(150×195), Q(190×220)±5cm</div>
+                <div class="item-text">카페트: S(110×200), Q(150x210)±5cm</div>
+                <div class="item-text">베개커버: 40×60, 50×70±3cm</div>
+            </div>
+        </div>
+    </div>
+    <div class="itemlist-container">
+        <div class="item">
+            <div class="item-content">
+                <h1 class="item-h1">티나 세미마이크로 차렵세트<br>(그레이.블루.핑크)</h1>
+                <br>
+                <div class="item-text">차렵: S(150×195), Q(190×220)±5cm</div>
+                <div class="item-text">카페트: S(110×200), Q(150x210)±5cm</div>
+                <div class="item-text">베개커버: 40×60, 50×70±3cm</div>
+            </div>
+            <div class="item-img">
+                <div class="item-img-container">
+                    <div class="carousel" id="carousel4">
+                      <div class="carousel-cell4"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/004티나세미마이크로차렵세트(그레이.블루,핑크)1.jpg}" alt="티나세미마이크로차렵세트" /></div>
+                      <div class="carousel-cell4"><img class="carousel-cell-img" th:src="@{/image/Items/차렵이불/004티나세미마이크로차렵세트(그레이.블루,핑크)2.jpg}" alt="티나세미마이크로차렵세트" /></div>
+                    </div>
+                </div>
+                <div class="prev-button" onclick="prev(4)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg></div>
+                <div class="next-button" onclick="next(4)"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg></div>
+            </div>
+        </div>
+    </div>
+    <div th:each="item, iterStat : ${productionItems}" th:class="${iterStat.index % 2 == 0 ? 'itemlist-container even' : 'itemlist-container odd'}" >
+        <div th:if="${iterStat.index % 2 == 0}" class="item">
+            <div class="item-img">
+                <div class="item-img-container">
+                    <div th:class="carousel" th:id="'carouselId' + ${iterStat.index}">
+                        <div th:each="f, fileStat : ${item.itemsFileEntityList}" th:class="'carousel-cellNew' + ${iterStat.index}"><img class="carousel-cell-img" th:src="${f.filePath}" th:alt="${f.originalName}" /></div>
+                    </div>
+                </div>
+                <div  th:unless ="${#lists.size(item.itemsFileEntityList) == 1}" class="prev-button"  th:attr="onclick='prevWrite(\'' + ${iterStat.index} + '\')'"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg></div>
+                <div  th:unless ="${#lists.size(item.itemsFileEntityList) == 1}" class="next-button"  th:attr="onclick='nextWrite(\'' + ${iterStat.index} + '\')'"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg></div>
+            </div>
+            <div class="item-content">
+                <h1 th:text="${item.title}" class="item-h1"></h1>
+                <br>
+                <div th:text="${item.content}" class="item-text"></div>
+                <div class="item-text" th:if="${session.admin != null}">
+                    <div class="detailbtnBox">
+                        <a th:href="@{/guest/production/updateform(id=${item.id})}" class="detailbtn"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+                          </svg>&nbsp;수정</a>
+                        <a th:href="@{/guest/production/delete(id=${item.id})}" class="detailbtn"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                          </svg>&nbsp;삭제</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:if="${iterStat.index % 2 != 0}" class="item">
+            <div class="item-content">
+                <h1 th:text="${item.title}" class="item-h1"></h1>
+                <br>
+                <div th:text="${item.content}" class="item-text"></div>
+                <div class="item-text" th:if="${session.admin != null}">
+                    <div class="detailbtnBox">
+                        <a th:href="@{/guest/production/updateform(id=${item.id})}" class="detailbtn"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                            <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+                            <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+                          </svg>&nbsp;수정</a>
+                        <a th:href="@{/guest/production/delete(id=${item.id})}" class="detailbtn"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                            <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                          </svg>&nbsp;삭제</a>
+                    </div>
+                </div>
+            </div>
+            <div class="item-img">
+                <div class="item-img-container">
+                    <div th:class="carousel" th:id="'carouselId' + ${iterStat.index}">
+                        <div th:each="f, fileStat : ${item.itemsFileEntityList}" th:class="'carousel-cellNew' + ${iterStat.index}"><img class="carousel-cell-img" th:src="${f.filePath}" th:alt="${f.originalName}" /></div>
+                    </div>
+                </div>
+                <div  th:unless ="${#lists.size(item.itemsFileEntityList) == 1}" class="prev-button"  th:attr="onclick='prevWrite(\'' + ${iterStat.index} + '\')'"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
+                  </svg></div>
+                <div  th:unless ="${#lists.size(item.itemsFileEntityList) == 1}" class="next-button"  th:attr="onclick='nextWrite(\'' + ${iterStat.index} + '\')'"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+                  </svg></div>
+            </div>
+        </div>
+    </div>
+    
+    <!--소개-->
+    <div th:insert="~{common/footer.html}" id="footer"></div>
+    <script type="text/javascript" th:src="@{/js/productionItems.js}"></script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>견적문의</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/quoteContact/quoteContact.css}" >
+    <!--JS-->
+    <script type="text/javascript" th:src="@{/js/common.js}"></script>
+    <script type="text/javascript" th:src="@{/js/quoteContact.js}"></script>
+</head>
+<body>
+    <div th:insert="~{common/header.html}" id="header"></div>
+    <!--photo-->
+    <div class="photo-container">
+        <img class="photo-main" th:src="@{/image/logoImg/배경사진.jpg}" alt="배경사진">
+        
+        <div class="aboutUs-box1">
+            <div class="aboutUs-box1-content">
+                <div class="aboutUs-box1-content-div">문의하시는 내용을 자세히 입력해 주시면 보다 신속하게 연락 받으실 수 있습니다.</div>
+            </div>
+        </div>
+    </div>
+    <div class="aboutUs-container">
+        <div class="aboutUs-box2">
+            견적문의
+        </div>
+    </div>
+    <form method="post" id="postQuote" class="postQuote" onsubmit="return false;">
+        <div class="quoteContact-container">
+            <div class="quoteContact-box">
+                <div class="quoteContact-title">
+                    <div class="quoteContact-title-star">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                        </svg>
+                        &nbsp;
+                        기본정보
+                    </div>
+                    <div class="quoteContact-title-star">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill color-star " viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                        </svg>
+                        &nbsp;
+                        필수 입력 항목
+                    </div>
+                </div>
+                <div class="quoteContact-content-table">
+                    <div class="quoteContactBox" id="quoteContactBox1">
+                        <label for="quoteContactInputName" class="quoteContactLabel">
+                            이름 &nbsp;
+                            <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill color-star " viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        </label>
+                        <input type="text" id="quoteContactInputName" name = "name" placeholder="이름을 입력해주세요. 예)홍길동" class="quoteContactInput">
+                    </div>
+                    <div class="quoteContactBox" id="quoteContactBox2">
+                        <label for="quoteContactInputPhone" class="quoteContactLabel">
+                            휴대폰 번호 &nbsp;
+                            <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill color-star " viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        </label>
+                        <input type="text" id="quoteContactInputPhone" name = "phone" placeholder="(-)없이 숫자만 입력해주세요. 예)01000000000" class="quoteContactInput">
+                    </div>
+                    <div class="quoteContactBox" id="quoteContactBox3">
+                        <label for="quoteContactInputEmail" class="quoteContactLabel">
+                            이메일 &nbsp;
+                            <span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill color-star " viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                            </svg>
+                        </span>
+                        </label>
+                        <input type="text" id="quoteContactInputEmail" name="email" placeholder="비즈니스/업무용 이메일 주소를 입력해주세요. 예)OOOO1111@OOOOO.com" class="quoteContactInput">
+                    </div>
+                    <div class="quoteContactBox" id="quoteContactBox4">
+                        <label for="quoteContactInputAddress" class="quoteContactLabel">
+                            지역 &nbsp;
+                        </label>
+                        <input type="text" id="quoteContactInputAddress" name="address" placeholder="주소를 입력해주세요. 예)경기도 광주시" class="quoteContactInput">
+                    </div>
+                    <div class="quoteContactBox" id="quoteContactBox5">
+                        <label for="quoteContactInputBusinessName" class="quoteContactLabel">
+                            상호명 &nbsp;
+                        </label>
+                        <input type="text" id="quoteContactInputBusinessName" name="businessName" placeholder="상호명을 입력해주세요. 예)파인코리아" class="quoteContactInput">
+                    </div>
+                    <div class="quoteContactBox" id="quoteContactBox6">
+                        <label for="quoteContactInputBusinessDay" class="quoteContactLabel">
+                            요청납품일 &nbsp;
+                        </label>
+                        <input type="text" id="quoteContactInputBusinessDay" name="businessDay" placeholder="년-월-일 순으로 입력해주세요 예)2024-01-01" class="quoteContactInput">
+                    </div>
+                    <div class="quoteContactTextBox" id="quoteContactTextBox">
+                        <label for="quoteContactText" class="quoteContactTextBoxLabel">
+                            내 용
+                        </label>
+                        <div class="quoteContactTextDiv">
+                            <textarea id="quoteContactText" name="content" maxlength="2000" class="quoteContactTextInput" placeholder="내용을 입력해주세요."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quoteContact-container">
+            <div class="quoteContact-box">
+                <div class="quoteContact-title">
+                    <div class="quoteContact-title-star">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+                        </svg>
+                        &nbsp;
+                        개인정보 취급 방침
+                    </div>
+                </div>
+                <div class="securityBox" id="securityBox">
+                    <div class="securityInput" id="securityInput">
+                        <h3 class="security-h3-start">1. 수집하는 개인정보의 항목</h3>
+                        <p class="security-p">회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.</p>
+                        <li class="security-li"><strong>- 수집항목</strong> : 이 름, 핸드폰, 이메일, 지역, 상호명, 요청납품일, 내 용</li>
+                        <li class="security-li"><strong>- 개인정보 수집방법</strong> : 홈페이지(회원가입)</li>
+
+                        <h3 class="security-h3">2. 개인정보의 수집 및 이용목적</h3>
+                        <p class="security-p">회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.</p>
+                        <strong class="security-li">- 서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산</strong>
+                        <p class="security-p">구매 및 요금 결제, 물품배송 또는 청구지 등 발송</p>
+                        <strong class="security-li">- 회원 관리</strong>
+                        <p class="security-p">회원제 서비스 이용에 따른 본인 확인, 개인 식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확인, 연령확인</p>
+
+                        <h3 class="security-h3">3. 개인정보의 보유 및 이용기간</h3>
+                        <p class="security-p">회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.</p>
+                    </div>
+                </div>
+                <div class="securityBoxCheck">
+                    <input type="checkbox" id="securityCheck"><label for="securityCheck"> &nbsp; 위 개인정보취급방침에 동의합니다.</label>
+                </div>
+                <div class="okButton-container">
+                    <button class="okButton" id ="okButton">보내기</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!--소개-->
+    <div th:insert="~{common/footer.html}" id="footer"></div>
+</body>
+</html>

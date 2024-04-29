@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 로그인</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/common/login.css}">
+    <!--JS-->
+    <script th:src="@{/js/common.js}"></script>
+</head>
+<body>
+    <div th:insert="~{common/header.html}" id="header"></div>
+
+    <!--photo-->
+    <div class="photo-container">
+        <img class="photo-main" th:src="@{/image/logoImg/배경사진.jpg}" alt="배경사진">
+        
+        <div class="aboutUs-box1">
+            <div class="aboutUs-box1-content">
+                <div class="aboutUs-box1-content-div">파인코리아는 항상 고객 입장을 생각하여 서비스를 제공합니다.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aboutUs-container">
+        <div class="aboutUs-box2">
+            관리자 모드
+        </div>
+    </div>
+    <form action="/login" method="post" class="loginContainer">
+        <input type="hidden" name = "role">
+        <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}" />
+        <input type="hidden" name = "adminName" value="관리자">
+        <div class="loginBox">
+            <div class="loginBoxTitle">
+                회원가입
+            </div>
+            <div class="loginInputBox">
+                <input class="loginInput" required name = "adminId" type="text" placeholder="아이디">
+            </div>
+            <div class="loginInputBox">
+                <input class="loginInput" required name = "password" type="password" placeholder="비밀번호">
+            </div>
+            <button type="submit" class="loginbuttonBox">
+                회원가입
+            </button>
+        </div>
+    </form>
+    <!--소개-->
+    <div th:insert="~{common/footer.html}" id="footer"></div>
+</body>
+</html>

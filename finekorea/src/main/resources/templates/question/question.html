@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>질문과 답변</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/question/question.css}">
+    <!--JS-->
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/question.js}"></script>
+</head>
+<body>
+    <div th:insert="~{common/header.html}" id="header"></div>
+    
+    <!--photo-->
+    <div class="photo-container">
+        <img class="photo-main" th:src="@{/image/logoImg/배경사진.jpg}" alt="배경사진">
+        
+        <div class="aboutUs-box1">
+            <div class="aboutUs-box1-content">
+                <div class="aboutUs-box1-content-div">욕설이나 폭언은 삼가해주세요.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="aboutUs-container">
+        <div class="aboutUs-box2">
+            질문과 답변
+        </div>
+    </div>
+    <div class="question-container">
+        <div class="question-box">
+            <div class="question-sub">
+                <div class="question-write-btn-box"> 
+                    <a th:href="@{/guest/question/writeForm}" class="question-write-btn">글작성</a>
+                </div>
+                <div class="question-status">
+                    <div class="question-search">검색어</div>
+                    <div class="question-searchbar-box">
+                        <input type="text" class="question-searchbar"  id="questionsearchbar" onkeyup="searchQuestion(event)">
+                    </div>
+                    <div class="question-searchbarButton" onclick="searchQuestion(event)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                          </svg>
+                    </div>
+                </div>
+
+            </div>
+            <table>
+                <thead>
+                    <tr align = "center" border = "1">
+                        <th>번호</th>
+                        <th width="auto">제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyQuestion">
+                    <tr th:each="q : ${questionPage}" align="center" height="40">
+                        <td>
+                            <span th:text="${q.num}"></span>
+                        </td>
+                        <td align="start">
+                            <a th:unless="${q.writingCheck}" class="writingTableA" th:text="${q.title}" th:href="@{/guest/question/view(num=${q.num})}"></a>
+                            <a th:if="${q.writingCheck}" class="writingTableA" th:text="${q.title}"  th:attr="onclick='questionView(\'' + ${q.num} + '\')'"></a>
+                        </td>
+                        <td><span th:text="${q.ninkName}"></span></td>
+                        <td><span th:text="${#temporals.format(q.createdDate, 'yyyy-MM-dd HH:mm')}"></span></td>
+                        <td><span th:text="${q.view}"></span></td>  
+                    </tr>
+                </tbody>
+            </table>
+            <div id="pageing-box" class="pageing-box">
+                <ul class="pageing" th:if="${questionPage.totalPages > 0}">
+                    <li th:if="${questionPage.number != 0}"><a th:href="@{'/guest/questionList?page=' + ${questionPage.number - 1}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                      </svg></a></li>
+                    <li th:each="pageNumber : ${#numbers.sequence(0, questionPage.totalPages - 1)}">
+                        <a th:href="@{'/guest/questionList?page=' + ${pageNumber}}">[[${pageNumber + 1}]]</a>
+                    </li>
+                    <li th:if="${questionPage.totalPages != (questionPage.number + 1)}"><a th:href="@{'/guest/questionList?page=' + ${questionPage.number + 1}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                      </svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <form method="POST" action="/guest/question/view" id="passwordModal" class="passwordModal">
+        <div class="modal-box-content">
+            <div class="modal-header">
+                <h1>패스워드 입력</h1>
+                <input type="hidden" name="num" id="passwordModelNum">
+                <span class="close" onclick="closePasswordInput()">&times;</span>
+            </div>
+            <div class="contentValue">
+                <div class="contentPassword">
+                    <label for="password">패스워드:</label>
+                    <input type="password" id="modalPassword" name="password">
+                </div>
+                <div class="modal-button">
+                    <button class ="modalPasswordSubmit" type="submit">확인</button>
+                    <span class ="modalPasswordSubmit" onclick="closePasswordInput()">취소</span>
+                </div>
+            
+            </div>
+        </div>
+      </form>
+
+    <!--소개-->
+    <div th:insert="~{common/footer.html}" id="footer"></div>
+</body>
+</html>

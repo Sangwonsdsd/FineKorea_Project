@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>header</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--부트스트랩-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+    <!--나눔스퀘어 글꼴-->
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css" rel="stylesheet">
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/common/allStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/common/header.css}" >
+</head>
+<body>
+    <script th:inline="javascript">
+        let textValue = [[${failText}]];
+        if(textValue){
+            console.log(textValue);
+            alert(textValue);
+        }
+    </script>
+    <div class="header-container" id ="header-container">
+    <div class="header-left-contaner">
+        <a th:href="@{/}" class="logo-image">
+            <img class="logo-fk" id="logo-fk" th:src="@{/image/logoImg/검_바탕_-removebg-preview.png}" alt="로고">
+        </a>
+    </div>
+    <div class="header-center-contaner">
+        <!--메뉴 정하기 넣기-->
+        <li class="header-center-menu">
+            <a th:href="@{/guest/about}" class="menu-link">
+                회사소개
+            </a>
+        </li>
+        <li class="header-center-menu">
+            <a th:href="@{/guest/hotel}" class="menu-link" id="menu-toggle2" >
+                생산품목
+            </a>
+            <ul class="sub-menu" id="subMenu-toggle2">
+                <li class="sub-menu-name">
+                    <a th:href="@{/guest/hotel}">호텔이불</a>
+                </li>
+                <li class="sub-menu-name">
+                    <a th:href="@{/guest/production}">차렵이불</a>
+                </li>
+            </ul>
+        </li>
+        <li class="header-center-menu">
+            <a th:href="@{/guest/quote}"  class="menu-link" id="menu-toggle3" aria-pressed="false">
+                견적문의
+            </a>
+            <ul class="sub-menu" id="subMenu-toggle3">
+                <li class="sub-menu-name">
+                    <a th:href="@{/guest/quote}">견적문의</a>
+                </li>
+                <li class="sub-menu-name">
+                    <a th:href="@{/guest/quoteList}">견적문의현황</a>
+                </li>
+            </ul>
+        </li>
+        <li class="header-center-menu">
+            <a th:href="@{/guest/community}" class="menu-link" id="menu-toggle4">
+                커뮤니티
+            </a>
+            <ul class="sub-menu" id="subMenu-toggle4">
+                <li class="sub-menu-name">
+                    <a th:href="@{/guest/community}">공지사항</a>
+                </li>
+                <li class="sub-menu-name">
+                    <a th:href="@{/guest/questionList}">질문과 답변</a>
+                </li>
+            </ul>
+        </li>
+    </div>
+    <div class="header-right-contaner">
+
+       
+        <a th:if="${session.admin != null}" th:href="@{/guest/joinForm}">회원가입</a>
+        <a th:if="${session.admin == null}" th:href="@{/guest/loginForm}">로그인</a>
+        <a th:if="${session.admin != null}" th:href="@{/guest/logout}">로그아웃</a>
+        
+    </div>
+</div>
+</body>
+</html>

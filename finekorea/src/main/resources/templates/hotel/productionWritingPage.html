@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글작성페이지</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/announcement/writingPage.css}" >
+    <link rel="stylesheet" th:href="@{/css/productionItems/itemsAdd.css}" >
+    <!--JS-->
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/productionItems.js}"></script>
+</head>
+<body>
+    <div th:insert="~{common/header.html}" id="header"></div>
+    <!--photo-->
+    <div class="photo-container">
+        <img class="photo-main" th:src="@{/image/logoImg/배경사진.jpg}" alt="배경사진">
+        
+        <div class="aboutUs-box1">
+            <div class="aboutUs-box1-content">
+                <div class="aboutUs-box1-content-div">파인코리아는 항상 고객 입장을 생각하여 서비스를 제공합니다.</div>
+            </div>
+        </div>
+    </div>
+    <div class="aboutUs-container">
+        <div class="aboutUs-box2">
+            생산품목
+        </div>
+    </div>
+
+    <div class="writingPage-container">
+        <div class="writingPage-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8"/>
+              </svg> 
+              &nbsp; 글작성
+        </div>
+        <form method="post" action="/guest/production/write" enctype="multipart/form-data" class="writingPage-content-table">
+            <div class="writingPageBox" id="writingPageBox1">
+                <label for="items" class="writingPageLabel">
+                    메뉴
+                </label>
+                <div class="itemsInput">  
+                    <select name="items" class="items" id="items">
+                        <option value="hotel">호텔</option>
+                        <option value="production">차렵</option>
+                    </select>
+                </div>
+            </div>
+            <div class="writingPageBox" id="writingPageBox3">
+                <label for="writingPageInputTitle" class="writingPageLabel">
+                    제목
+                </label>
+                <input required type="text" id="writingPageInputTitle" name = "title" placeholder="제목을 입력해주세요." class="writingPageInput">
+            </div>
+            <div class="writingPageTextBox" id="writingPageTextBox">
+                <label for="summernote" class="writingPageTextBoxLabel">
+                    내 용
+                </label>
+                <div class="writingPageTextDiv">
+                    <div class="writingIMG-box">
+                        <label for="fileupload" type="button" class="writingIMG note-btn" id="uploadBtn">이미지 첨부</label>
+                        <input name="uploadFiles" id="fileupload" type="file" multiple>
+                    </div>
+                    <textarea required id="summernote" name="content" class="writingPageTextInput"></textarea>
+                    <div class="uploadResult">
+
+                    </div>
+                </div>
+            </div>
+            <div class="okButton-container">
+                <div class="okButton-box">
+                    <button type="submit" id="okButton" class="okButton">작성하기</button>
+                    <button type="button" class="xButton">취소하기</button>
+                </div>
+
+            </div> 
+        </form>
+    </div>
+    <!--소개-->
+    <div th:insert="~{common/footer.html}" id="footer"></div>
+</body>
+</html>

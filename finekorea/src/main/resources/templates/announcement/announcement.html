@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항</title>
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" th:href="@{/css/announcement/announcement.css}" >
+    <!--JS-->
+    <script th:src="@{/js/common.js}"></script>
+    <script th:src="@{/js/announcement.js}"></script>
+</head>
+<body>
+    <div th:insert="~{common/header.html}" id="header"></div>
+    
+    <!--photo-->
+    <div class="photo-container">
+        <img class="photo-main" th:src="@{/image/logoImg/배경사진.jpg}" alt="배경사진">
+        
+        <div class="aboutUs-box1">
+            <div class="aboutUs-box1-content">
+                <div class="aboutUs-box1-content-div">파인코리아는 항상 고객 입장을 생각하여 서비스를 제공합니다.</div>
+            </div>
+        </div>
+    </div>
+    <div class="aboutUs-container">
+        <div class="aboutUs-box2">
+            공지사항
+        </div>
+    </div>
+    <div class="announcement-container">
+        <div class="announcement-box">
+            <div class="announcement-sub">
+                <div class="announcement-write-btn-box">
+                    <a th:if="${session.admin != null}" th:href="@{/guest/community/writeform}" class="announcement-write-btn">글작성</a>
+                </div>
+                <div class="announcement-status">
+                    <div class="announcement-search">검색어</div>
+                    <div class="announcement-searchbar-box">
+                        <input type="text" class="announcement-searchbar" id="announcementSearchbar" onkeyup="searchCommunity(event)">
+                    </div>
+                    <div class="announcement-searchbarButton" onclick="searchCommunity(event)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                          </svg>
+                    </div>
+                </div>
+
+            </div>
+            <table>
+                <thead>
+                    <tr align = "center" border = "1">
+                        <th>번호</th>
+                        <th width="400">제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회수</th>
+                    </tr>
+                </thead>
+                <tbody id="tbodyCommunity">
+                    <tr th:each="c : ${communityPage}" align="center" height="40">
+                        <td>
+                            <span th:text="${c.communityId}"></span>
+                        </td>
+                        <td align="start">
+                            <a class="writingTableA" th:text="${c.title}" th:href="@{/guest/community/view(id=${c.communityId})}"></a>
+                        </td>
+                        <td><span th:text="${c.writer}"></span></td>
+                        <td><span th:text="${#temporals.format(c.createdDate, 'yyyy-MM-dd HH:mm')}"></span></td>
+                        <td><span th:text="${c.view}"></span></td>  
+                    </tr>
+                </tbody>
+            </table>
+            <div id="pageing-box" class="pageing-box">
+                <ul class="pageing" th:if="${communityPage.totalPages > 0}">
+                    <li th:if="${communityPage.number != 0}"><a th:href="@{'/guest/community?page=' + ${communityPage.number - 1}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0"/>
+                      </svg></a></li>
+                    <li th:each="pageNumber : ${#numbers.sequence(0, communityPage.totalPages - 1)}">
+                        <a th:href="@{'/guest/community?page=' + ${pageNumber}}">[[${pageNumber + 1}]]</a>
+                    </li>
+                    <li th:if="${communityPage.totalPages != (communityPage.number + 1)}"><a th:href="@{'/guest/community?page=' + ${communityPage.number + 1}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708"/>
+                      </svg></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!--소개-->
+    <div th:insert="~{common/footer.html}" id="footer"></div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+.header-container{
+    position: fixed;
+}
+/*메인 사진 스타일*/
+.photo-container{
+    width: 100%;
+    height: 797px;
+    overflow:hidden;
+    margin:0 auto;
+}
+/*메인 사진*/
+.photo-main{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+
+}
+
+/*연락처 및 문의*/
+.main-container{
+    width: 100%;
+    height: 177px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:  4rem;
+
+}
+/*문의*/
+.main-link-inquiry{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    min-height: 177px;
+    min-width: 413px;
+    padding: 20px 150px 20px 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    flex-direction: column;
+    background-color: #a3894c;
+    color: white;
+}
+
+/*상품*/
+.main-link-items{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 177px;
+    min-height: 177px;
+    min-width: 413px;
+    padding: 20px 150px 20px 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    cursor: pointer;
+    flex-direction: column;
+    background: #303b4c;
+    color: white;
+}
+
+
+.main-link-eng{
+    display: flex;
+    font-size: 1.6rem;
+    letter-spacing: .2em;
+    margin-bottom: 10px;
+}
+
+.main-link-eng2{
+    margin-right: 10px;
+    font-family: 'NanumSquareAceb';
+}
+
+.main-link-eng3{
+    font-family: 'NanumSquareAceb';
+    padding-left: 0px;
+    margin-bottom: 0px;
+}
+
+.main-link-h3{
+    font-family: 'NanumSquareAceb';
+    font-size: 45px;
+}
+
+/*연락처*/
+.main-info{
+    width: 50%;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 823px;
+    font-family: 'NanumSquare';
+    color: #333F50;
+}
+
+.main-info2{
+    width: 734px;
+    height: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.main-link-menu-info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
