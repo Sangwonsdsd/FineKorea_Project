@@ -106,11 +106,62 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById('logo-fk').src = '/image/logoImg/검_바탕_-removebg-preview.png';
             }
         }, 200); 
+        setTimeout(function() {
+            if (!document.getElementById('header-container').matches(':hover') && !document.getElementById('logo-fk2').matches(':hover')) {
+                document.getElementById('header-container').style.background = 'none';
+                document.getElementById('header-container').style.color = 'white';
+                document.getElementById('logo-fk2').src = '/image/logoImg/흰_바탕_-removebg-preview.png';
+            }
+        }, 200); 
 
     }
 
+    document.getElementById('btn-mobile-menu').onclick = function(){
+        if(document.getElementById('moblie-header-center-menu').style.display == 'flex'){
+            document.getElementById('moblie-header-center-menu').style.display = 'none';
+        }else{
+            document.getElementById('moblie-header-center-menu').style.display = 'flex';
+        }
+    }
 
+    document.getElementById('introduction').onclick = function(){
+        if(document.getElementById('introduction-content').style.display == 'flex'){
+            document.getElementById('introduction-content').style.display = 'none';
+        }else{
+            document.getElementById('introduction-content').style.display = 'flex';
+        }
+    }
 
+    document.getElementById('product').onclick = function(){
+        if(document.getElementById('product-content').style.display == 'flex'){
+            document.getElementById('product-content').style.display = 'none';
+        }else{
+            document.getElementById('product-content').style.display = 'flex';
+        }
+    }
 
+    document.getElementById('inquiry').onclick = function(){
+        if(document.getElementById('inquiry-content').style.display == 'flex'){
+            document.getElementById('inquiry-content').style.display = 'none';
+        }else{
+            document.getElementById('inquiry-content').style.display = 'flex';
+        }
+    }
+
+    document.getElementById('community').onclick = function(){
+        if(document.getElementById('community-content').style.display == 'flex'){
+            document.getElementById('community-content').style.display = 'none';
+        }else{
+            document.getElementById('community-content').style.display = 'flex';
+        }
+    }
+    document.getElementById('manager').onclick = function(){
+        if(document.getElementById('manager-content').style.display == 'flex'){
+            document.getElementById('manager-content').style.display = 'none';
+        }else{
+            document.getElementById('manager-content').style.display = 'flex';
+        }
+    }
 
 });
+

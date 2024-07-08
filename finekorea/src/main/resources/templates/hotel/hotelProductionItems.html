@@ -28,7 +28,7 @@
 
     <div class="production-container">
         <div class="production-box2">
-            <div>
+            <div class="production-content">
                 호텔이불
             </div>
             <a th:if="${session.admin != null}" th:href="@{/guest/production/writeForm}" class="production-write-btn">
@@ -42,7 +42,7 @@
     </button>
     <div class="itemlist-container">
         <div class="item">
-            <div class="item-img">
+            <div class="item-img" id="item-img">
                 <div class="item-img-container">
                     <div class="carousel" id="carousel5">
                       <div class="carousel-cell5"><img class="carousel-cell-img cellimg1" th:src="@{/image/Items/호텔이불/001듀베이불커버.jpg}" alt="듀베이불커버" /></div>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="itemlist-container">
-        <div class="item">
+        <div class="item" id="item2">
             <div class="item-content">
                 <h1 class="item-h1">침대시트</h1>
                 <br>
@@ -86,7 +86,7 @@
         </div>
     </div>
     <div class="itemlist-container">
-        <div class="item">
+        <div class="item" id="item3">
             <div class="item-img">
                 <div class="item-img-container">
                     <div class="carousel" id="carousel7">

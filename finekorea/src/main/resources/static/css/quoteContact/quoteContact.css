@@ -1,257 +1,776 @@
-/*헤더 스타일*/
-.header-container{
-    background: black;
+@media (min-width: 1024px) {
+    /*헤더 스타일*/
+    .header-container{
+        background: black;
+    }
+
+    /*메인 사진 스타일*/
+    .photo-container{
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow:hidden;
+        margin:0 auto;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+    }
+    /*메인 사진*/
+    .photo-main{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .aboutUs-box1{
+        width: 100%;
+        height: 100px;
+        color: white;
+        position: absolute;
+        top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .aboutUs-box1-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 900px;
+        height: 100%;
+    }
+
+    .aboutUs-box1-content-h1{
+        font-size: 40px;
+    }
+
+    .aboutUs-box1-content-div{
+        font-size: 20px;
+    }
+
+    /*공통 제목*/
+    /*인사말*/
+    .aboutUs-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        border-bottom: 1px solid #ddd;
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    .aboutUs-box2{
+        height: 100px;
+        width: 800px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    /*견적문의*/
+    .quoteContact-container{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 543px;
+        margin-bottom: 20px;
+    }
+    .quoteContact-box{
+        width: 800px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quoteContact-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        width: 750px;
+        height: 30px;
+        font-size: large;
+        font-weight: 800;
+        border-bottom: 2px solid black;
+    }
+    .quoteContact-title-star{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .color-star{
+        color: #DC3545;
+    }
+
+    .quoteContact-content-table{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 750px;
+        height: 100%;
+        border-bottom: 2px solid black;
+    }
+
+    .quoteContactBox{
+        display: flex;
+        width: 100%;
+        height: 20px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+
+    .quoteContactLabel{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: medium;
+        width: 150px;
+        height: 30px;
+    }
+    .quoteContactInput{
+        width: 100%;
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid #222;
+    }
+
+    .quoteContactTextBox{
+        display: flex;
+        width: 100%;
+        height: 120px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .quoteContactTextBoxLabel{
+        height: 100%;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        font-size: medium;
+    }
+
+    .quoteContactTextDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #000000;
+        border-radius: 5px;
+    }
+
+    .quoteContactTextInput{
+        font-family: 'NanumSquare';
+        width: 95%;
+        height: 80%;
+        resize: none;
+        border: none;
+        font-size: 15px;
+    }
+
+    .quoteContactTextInput:focus {
+        outline: none;
+    }
+
+    .securityBox{
+        width: 750px;
+        height: 292px;
+        padding: 20px;
+        margin-top: 15px;
+        display: flex;
+        border: 1px solid #000000;
+        border-radius: 5px;
+    }
+
+    .securityInput{
+        width: 100%;
+        height: 100%;
+        overflow : auto;
+    }
+
+    .securityBoxCheck{
+        width: 750px;
+        height: 30px;
+        font-size: large;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .okButton-container{
+        width: 750px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .okButton{
+        width: 200px;
+        height: 50px;
+        border: none;
+        border-radius: 20px;
+        background: #000000;
+        color: white;
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    .security-h3-start{
+        font-size: 15px;
+        padding-top: 10px;
+    }
+
+    .security-h3{
+        font-size: 15px;
+        padding-top: 30px;
+    }
+
+    .security-p{
+        font-size: 13px;
+        padding-left: 17px;
+        padding-bottom: 10px;
+        padding-top: 5px;
+    }
+
+    .security-li{
+        font-size: 13px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+
+    .postQuote{
+        width: 100%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+    }
 }
 
-/*메인 사진 스타일*/
-.photo-container{
-    position: relative;
-    width: 100%;
-    height: 200px;
-    overflow:hidden;
-    margin:0 auto;
-    z-index: -1;
-    display: flex;
-    justify-content: center;
-}
-/*메인 사진*/
-.photo-main{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+@media (max-width: 1023px) {
+    /*메인 사진 스타일*/
+    .photo-container{
+        position: relative;
+        width: 100%;
+        height: 200px;
+        overflow:hidden;
+        margin:0 auto;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+    }
+    /*메인 사진*/
+    .photo-main{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+    }
+
+    .aboutUs-box1{
+        width: 100%;
+        height: 100px;
+        color: white;
+        position: absolute;
+        top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .aboutUs-box1-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 900px;
+        height: 100%;
+    }
+
+    .aboutUs-box1-content-h1{
+        font-size: 40px;
+    }
+
+    .aboutUs-box1-content-div{
+        font-size: 20px;
+    }
+
+    /*공통 제목*/
+    /*인사말*/
+    .aboutUs-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100px;
+        border-bottom: 1px solid #ddd;
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    .aboutUs-box2{
+        height: 100px;
+        width: 800px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    /*견적문의*/
+    .quoteContact-container{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 543px;
+        margin-bottom: 20px;
+    }
+    .quoteContact-box{
+        width: 800px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quoteContact-title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        width: 750px;
+        height: 30px;
+        font-size: large;
+        font-weight: 800;
+        border-bottom: 2px solid black;
+    }
+    .quoteContact-title-star{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .color-star{
+        color: #DC3545;
+    }
+
+    .quoteContact-content-table{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 750px;
+        height: 100%;
+        border-bottom: 2px solid black;
+    }
+
+    .quoteContactBox{
+        display: flex;
+        width: 100%;
+        height: 20px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 15px;
+    }
+
+    .quoteContactLabel{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: medium;
+        width: 150px;
+        height: 30px;
+    }
+    .quoteContactInput{
+        width: 100%;
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid #222;
+    }
+
+    .quoteContactTextBox{
+        display: flex;
+        width: 100%;
+        height: 120px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .quoteContactTextBoxLabel{
+        height: 100%;
+        width: 150px;
+        display: flex;
+        align-items: center;
+        font-size: medium;
+    }
+
+    .quoteContactTextDiv{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        border: 1px solid #000000;
+        border-radius: 5px;
+    }
+
+    .quoteContactTextInput{
+        font-family: 'NanumSquare';
+        width: 95%;
+        height: 80%;
+        resize: none;
+        border: none;
+        font-size: 15px;
+    }
+
+    .quoteContactTextInput:focus {
+        outline: none;
+    }
+
+    .securityBox{
+        width: 750px;
+        height: 292px;
+        padding: 20px;
+        margin-top: 15px;
+        display: flex;
+        border: 1px solid #000000;
+        border-radius: 5px;
+    }
+
+    .securityInput{
+        width: 100%;
+        height: 100%;
+        overflow : auto;
+    }
+
+    .securityBoxCheck{
+        width: 750px;
+        height: 30px;
+        font-size: large;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .okButton-container{
+        width: 750px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .okButton{
+        width: 200px;
+        height: 50px;
+        border: none;
+        border-radius: 20px;
+        background: #000000;
+        color: white;
+        font-weight: 800;
+        font-size: 20px;
+    }
+
+    .security-h3-start{
+        font-size: 15px;
+        padding-top: 10px;
+    }
+
+    .security-h3{
+        font-size: 15px;
+        padding-top: 30px;
+    }
+
+    .security-p{
+        font-size: 13px;
+        padding-left: 17px;
+        padding-bottom: 10px;
+        padding-top: 5px;
+    }
+
+    .security-li{
+        font-size: 13px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+    }
+
+    .postQuote{
+        width: 100%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        align-items:center;
+        justify-content:center;
+    }
 }
 
-.aboutUs-box1{
-    width: 100%;
-    height: 100px;
-    color: white;
-    position: absolute;
-    top: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@media (max-width: 540px) {
+        /*메인 사진 스타일*/
+        .photo-container{
+            position: relative;
+            width: 100%;
+            height: 100px;
+            overflow:hidden;
+            margin:0 auto;
+            z-index: -1;
+            display: flex;
+            justify-content: center;
+        }
+        /*메인 사진*/
+        .photo-main{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
     
-}
-
-.aboutUs-box1-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 900px;
-    height: 100%;
-}
-
-.aboutUs-box1-content-h1{
-    font-size: 40px;
-}
-
-.aboutUs-box1-content-div{
-    font-size: 20px;
-}
-
-/*공통 제목*/
-/*인사말*/
-.aboutUs-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    border-bottom: 1px solid #ddd;
-    font-size: 30px;
-    font-weight: 800;
-}
-
-.aboutUs-box2{
-    height: 100px;
-    width: 800px;
-    display: flex;
-    align-items: center;
-}
-
-
-/*견적문의*/
-.quoteContact-container{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 543px;
-    margin-bottom: 20px;
-}
-.quoteContact-box{
-    width: 800px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.quoteContact-title{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    width: 750px;
-    height: 30px;
-    font-size: large;
-    font-weight: 800;
-    border-bottom: 2px solid black;
-}
-.quoteContact-title-star{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.color-star{
-    color: #DC3545;
-}
-
-.quoteContact-content-table{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 750px;
-    height: 100%;
-    border-bottom: 2px solid black;
-}
-
-.quoteContactBox{
-    display: flex;
-    width: 100%;
-    height: 20px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    font-size: 15px;
-}
-
-.quoteContactLabel{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-size: medium;
-    width: 150px;
-    height: 30px;
-}
-.quoteContactInput{
-    width: 100%;
-    height: 30px;
-    border: none;
-    border-bottom: 1px solid #222;
-}
-
-.quoteContactTextBox{
-    display: flex;
-    width: 100%;
-    height: 120px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-
-.quoteContactTextBoxLabel{
-    height: 100%;
-    width: 150px;
-    display: flex;
-    align-items: center;
-    font-size: medium;
-}
-
-.quoteContactTextDiv{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    border: 1px solid #000000;
-    border-radius: 5px;
-}
-
-.quoteContactTextInput{
-    font-family: 'NanumSquare';
-    width: 95%;
-    height: 80%;
-    resize: none;
-    border: none;
-    font-size: 15px;
-}
-
-.quoteContactTextInput:focus {
-    outline: none;
-  }
-
-.securityBox{
-    width: 750px;
-    height: 292px;
-    padding: 20px;
-    margin-top: 15px;
-    display: flex;
-    border: 1px solid #000000;
-    border-radius: 5px;
-}
-
-.securityInput{
-    width: 100%;
-    height: 100%;
-    overflow : auto;
-}
-
-.securityBoxCheck{
-    width: 750px;
-    height: 30px;
-    font-size: large;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.okButton-container{
-    width: 750px;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.okButton{
-    width: 200px;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-    background: #000000;
-    color: white;
-    font-weight: 800;
-    font-size: 20px;
-}
-
-.security-h3-start{
-    font-size: 15px;
-    padding-top: 10px;
-}
-
-.security-h3{
-    font-size: 15px;
-    padding-top: 30px;
-}
-
-.security-p{
-    font-size: 13px;
-    padding-left: 17px;
-    padding-bottom: 10px;
-    padding-top: 5px;
-}
-
-.security-li{
-    font-size: 13px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-.postQuote{
-    width: 100%;
-    height: 100%;
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content:center;
+        .aboutUs-box1{
+            width: 100%;
+            height: 50px;
+            color: white;
+            position: absolute;
+            top: 25%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    
+        .aboutUs-box1-content{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 75%;
+            height: 50px;
+        }
+    
+        .aboutUs-box1-content-h1{
+            font-size: 40px;
+        }
+    
+        .aboutUs-box1-content-div{
+            font-size: 14px;
+        }
+    
+        /*공통 제목*/
+        /*인사말*/
+        .aboutUs-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100px;
+            border-bottom: 1px solid #ddd;
+            font-size: 20px;
+            font-weight: 800;
+        }
+    
+        .aboutUs-box2{
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .aboutUs-content{
+            height: 50px;
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        /*견적문의*/
+        .quoteContact-container{
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 543px;
+            margin-bottom: 20px;
+        }
+        .quoteContact-box{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .quoteContact-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            width: 95%;
+            height: 30px;
+            font-size: large;
+            font-weight: 800;
+            border-bottom: 2px solid black;
+        }
+        .quoteContact-title-star{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .color-star{
+            color: #DC3545;
+        }
+    
+        .quoteContact-content-table{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 95%;
+            height: 100%;
+            border-bottom: 2px solid black;
+        }
+    
+        .quoteContactBox{
+            display: flex;
+            width: 100%;
+            height: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-size: 11px;
+        }
+    
+        .quoteContactLabel{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: medium;
+            width: 150px;
+            height: 30px;
+        }
+        .quoteContactInput{
+            width: 100%;
+            height: 30px;
+            border: none;
+            border-bottom: 1px solid #222;
+        }
+    
+        .quoteContactTextBox{
+            display: flex;
+            width: 100%;
+            height: 120px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+    
+        .quoteContactTextBoxLabel{
+            height: 100%;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            font-size: medium;
+        }
+    
+        .quoteContactTextDiv{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+    
+        .quoteContactTextInput{
+            font-family: 'NanumSquare';
+            width: 95%;
+            height: 80%;
+            resize: none;
+            border: none;
+            font-size: 15px;
+        }
+    
+        .quoteContactTextInput:focus {
+            outline: none;
+        }
+    
+        .securityBox{
+            width: 95%;
+            height: 292px;
+            padding: 20px;
+            margin-top: 15px;
+            display: flex;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+    
+        .securityInput{
+            width: 100%;
+            height: 100%;
+            overflow : auto;
+        }
+    
+        .securityBoxCheck{
+            width: 95%;
+            height: 30px;
+            font-size: large;
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+    
+        .okButton-container{
+            width: 95%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .okButton{
+            width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 20px;
+            background: #000000;
+            color: white;
+            font-weight: 800;
+            font-size: 20px;
+        }
+    
+        .security-h3-start{
+            font-size: 15px;
+            padding-top: 10px;
+        }
+    
+        .security-h3{
+            font-size: 13px;
+            padding-top: 30px;
+        }
+    
+        .security-p{
+            font-size: 10px;
+            padding-left: 17px;
+            padding-bottom: 10px;
+            padding-top: 5px;
+        }
+    
+        .security-li{
+            font-size: 10px;
+            padding-left: 10px;
+            padding-bottom: 10px;
+        }
+    
+        .postQuote{
+            width: 100%;
+            height: 100%;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content:center;
+        }
 }

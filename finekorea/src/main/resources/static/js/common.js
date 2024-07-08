@@ -92,22 +92,86 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     document.getElementById('header-container').onmouseover = function(){
+        if(window.innerWidth > 1023){
+            document.getElementById('header-container').style.background = 'white';
+            document.getElementById('header-container').style.color = '#222';
+            document.getElementById('logo-fk').src =  '/image/logoImg/흰_바탕_-removebg-preview.png';
+            document.getElementById('header-container').style.borderBottom = '0.5px solid #a3894c';
+        }
+    }
+
+    document.getElementById('header-container').onmouseout = function(){
+        if(window.innerWidth > 1023){
+            setTimeout(function() {
+                if (!document.getElementById('header-container').matches(':hover') && !document.getElementById('logo-fk').matches(':hover')) {
+                    document.getElementById('header-container').style.background = 'black';
+                    document.getElementById('header-container').style.color = 'white';
+                    document.getElementById('logo-fk').src = '/image/logoImg/검_바탕_-removebg-preview.png';
+                }
+            }, 200);
+        }
+    }
+
+    document.getElementById('btn-mobile-menu').onclick = function(){
+        if(document.getElementById('moblie-header-center-menu').style.display == 'flex'){
+            document.getElementById('moblie-header-center-menu').style.display = 'none';
+        }else{
+            document.getElementById('moblie-header-center-menu').style.display = 'flex';
+        }
+    }
+
+    document.getElementById('introduction').onclick = function(){
+        if(document.getElementById('introduction-content').style.display == 'flex'){
+            document.getElementById('introduction-content').style.display = 'none';
+        }else{
+            document.getElementById('introduction-content').style.display = 'flex';
+        }
+    }
+
+    document.getElementById('product').onclick = function(){
+        if(document.getElementById('product-content').style.display == 'flex'){
+            document.getElementById('product-content').style.display = 'none';
+        }else{
+            document.getElementById('product-content').style.display = 'flex';
+        }
+    }
+
+    document.getElementById('inquiry').onclick = function(){
+        if(document.getElementById('inquiry-content').style.display == 'flex'){
+            document.getElementById('inquiry-content').style.display = 'none';
+        }else{
+            document.getElementById('inquiry-content').style.display = 'flex';
+        }
+    }
+
+    document.getElementById('community').onclick = function(){
+        if(document.getElementById('community-content').style.display == 'flex'){
+            document.getElementById('community-content').style.display = 'none';
+        }else{
+            document.getElementById('community-content').style.display = 'flex';
+        }
+    }
+    document.getElementById('manager').onclick = function(){
+        if(document.getElementById('manager-content').style.display == 'flex'){
+            document.getElementById('manager-content').style.display = 'none';
+        }else{
+            document.getElementById('manager-content').style.display = 'flex';
+        }
+    }
+
+});
+
+function mediaResize(){
+    if(window.innerWidth < 1024){
         document.getElementById('header-container').style.background = 'white';
         document.getElementById('header-container').style.color = '#222';
         document.getElementById('logo-fk').src =  '/image/logoImg/흰_바탕_-removebg-preview.png';
         document.getElementById('header-container').style.borderBottom = '0.5px solid #a3894c';
+    }else{
+        document.getElementById('header-container').style.background = 'black';
+        document.getElementById('header-container').style.color = 'white';
+        document.getElementById('logo-fk').src = '/image/logoImg/검_바탕_-removebg-preview.png';
     }
+}
 
-
-    document.getElementById('header-container').onmouseout = function(){
-        setTimeout(function() {
-            if (!document.getElementById('header-container').matches(':hover') && !document.getElementById('logo-fk').matches(':hover')) {
-                document.getElementById('header-container').style.background = 'black';
-                document.getElementById('header-container').style.color = 'white';
-                document.getElementById('logo-fk').src = '/image/logoImg/검_바탕_-removebg-preview.png';
-
-            }
-        }, 200); 
-
-    }
-});
+window.addEventListener('resize', mediaResize);

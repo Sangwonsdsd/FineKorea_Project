@@ -4,7 +4,6 @@ spring:
     host: smtp.gmail.com
     port: 587
     username: 32144733@dankook.ac.kr #앱 비밀번호 발급받은 google 계정
-    password: vgba ethf qutr zpai #발급받은 앱 비밀번호
     properties:
       mail:
         smtp:
@@ -15,7 +14,6 @@ spring:
     url: jdbc:mariadb://finekorea.kr:3306/hjungcwoo?serverTimezone=UTC&characterEncoding=UTF-8&createDatabaseIfNotExist=true
 #    url: jdbc:mariadb://localhost:3306/hjungcwoo
     username: hjungcwoo
-    password: Jang1017172*
     driver-class-name: org.mariadb.jdbc.Driver
 
 server:

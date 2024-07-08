@@ -7,7 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
 @Entity
 @Table(name = "quote")
 public class QuoteEntity extends TimeEntity {
@@ -43,4 +42,48 @@ public class QuoteEntity extends TimeEntity {
         this.businessDay = businessDay;
         this.content = content;
     }
+
+    public Long getId(){
+        return id;
+    }
+
+    public String getBusinessDay(){
+        return businessDay;
+    }
+
+    public String getContent(){
+        return content;
+    }
+
+    public String getName(){
+        if(name != null && name.length() > 0){
+            return name.charAt(0) + "xx";
+        }
+        return name;
+    }
+    public String getPhone(){
+        if(phone != null && phone.length() > 0){
+            return phone.substring(0, 4) + "xxx";
+        }
+        return phone;
+    }
+    public String getEmail(){
+        if(email != null && email.length() > 0){
+            return email.charAt(0) + "xx@xxx.x";
+        }
+        return email;
+    }
+    public String getAddress(){
+        if(address != null && address.length() > 0){
+            return address.substring(0, 3) + "xx";
+        }
+        return address;
+    }
+    public String getBusinessName(){
+        if(businessName != null && businessName.length() > 0){
+            return businessName.charAt(0) + "xx";
+        }
+        return businessName;
+    }
+
 }

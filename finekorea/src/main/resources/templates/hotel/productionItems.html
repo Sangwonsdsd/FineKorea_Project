@@ -28,7 +28,10 @@
 
     <div class="production-container">
         <div class="production-box2">
-            차렵이불
+            <div class="production-content">
+                차렵이불
+            </div>
+            
             <a th:if="${session.admin != null}" th:href="@{/guest/production/writeForm}" class="production-write-btn">
                 글작성
             </a>

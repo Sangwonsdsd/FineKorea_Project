@@ -24,10 +24,14 @@
             alert(textValue);
         }
     </script>
-    <div class="header-container" id ="header-container">
+
+  <div class="header-container" id ="header-container">
     <div class="header-left-contaner">
         <a th:href="@{/}" class="logo-image">
             <img class="logo-fk" id="logo-fk" th:src="@{/image/logoImg/검_바탕_-removebg-preview.png}" alt="로고">
+        </a>
+        <a th:href="@{/}" class="logo-image2">
+            <img class="logo-fk" id="logo-fk2" th:src="@{/image/logoImg/흰_바탕_-removebg-preview.png}" alt="로고">
         </a>
     </div>
     <div class="header-center-contaner">
@@ -38,7 +42,7 @@
             </a>
         </li>
         <li class="header-center-menu">
-            <a th:href="@{/guest/hotel}" class="menu-link" id="menu-toggle2" >
+            <a  class="menu-link" id="menu-toggle2" >
                 생산품목
             </a>
             <ul class="sub-menu" id="subMenu-toggle2">
@@ -51,7 +55,7 @@
             </ul>
         </li>
         <li class="header-center-menu">
-            <a th:href="@{/guest/quote}"  class="menu-link" id="menu-toggle3" aria-pressed="false">
+            <a  class="menu-link" id="menu-toggle3" aria-pressed="false">
                 견적문의
             </a>
             <ul class="sub-menu" id="subMenu-toggle3">
@@ -64,7 +68,7 @@
             </ul>
         </li>
         <li class="header-center-menu">
-            <a th:href="@{/guest/community}" class="menu-link" id="menu-toggle4">
+            <a class="menu-link" id="menu-toggle4">
                 커뮤니티
             </a>
             <ul class="sub-menu" id="subMenu-toggle4">
@@ -77,13 +81,87 @@
             </ul>
         </li>
     </div>
-    <div class="header-right-contaner">
-
-       
+    <div class="header-right-contaner1">
         <a th:if="${session.admin != null}" th:href="@{/guest/joinForm}">회원가입</a>
         <a th:if="${session.admin == null}" th:href="@{/guest/loginForm}">로그인</a>
         <a th:if="${session.admin != null}" th:href="@{/guest/logout}">로그아웃</a>
-        
+    </div>
+    <div class="header-right-contaner2">
+        <button type="button" id="btn-mobile-menu" class="btn btn-secondary btn-mobile-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!--모바일 메뉴-->
+    <div id="moblie-header-center-menu" class="moblie-header-center-menu">
+        <div class="moblie-header-toggle-menus">
+          <a id="introduction" class="moblie-header-toggle-menu-title">
+            소개
+          </a>
+        </div>
+        <div id="introduction-content" class="moblie-header-toggle-menu">
+          <a th:href="@{/guest/about}" class="moblie-header-toggle-menu-content">
+            회사소개
+          </a>
+        </div>
+        <div class="moblie-header-toggle-menus">
+          <a id="product" class="moblie-header-toggle-menu-title">
+            생산물품
+          </a>
+        </div>
+        <div id="product-content" class="moblie-header-toggle-menu">
+          <a th:href="@{/guest/hotel}" class="moblie-header-toggle-menu-content">
+            호텔이불
+          </a>
+          <a th:href="@{/guest/production}" class="moblie-header-toggle-menu-content">
+            차렵이불
+          </a>
+        </div>
+        <div class="moblie-header-toggle-menus">
+          <a id="inquiry" class="moblie-header-toggle-menu-title">
+            견적문의
+          </a>
+        </div>
+        <div id="inquiry-content" class="moblie-header-toggle-menu">
+          <a th:href="@{/guest/quote}" class="moblie-header-toggle-menu-content">
+            견적문의
+          </a>
+          <a th:href="@{/guest/quoteList}" class="moblie-header-toggle-menu-content">
+            견적문의현황
+          </a>
+        </div>
+        <div class="moblie-header-toggle-menus">
+          <a id="community" class="moblie-header-toggle-menu-title">
+            커뮤니티
+          </a>
+        </div>
+        <div id="community-content" class="moblie-header-toggle-menu">
+          <a th:href="@{/guest/community}" class="moblie-header-toggle-menu-content">
+            공지사항
+          </a>
+          <a th:href="@{/guest/questionList}" class="moblie-header-toggle-menu-content">
+            질문과답변
+          </a>
+        </div>
+
+        <div class="moblie-header-toggle-menus">
+          <a id="manager" class="moblie-header-toggle-menu-title">
+            관리자
+          </a>
+        </div>
+        <div id="manager-content" class="moblie-header-toggle-menu">
+          <a th:if="${session.admin == null}" th:href="@{/guest/loginForm}" class="moblie-header-toggle-menu-content">
+            로그인
+          </a>
+          <a th:if="${session.admin != null}" th:href="@{/guest/logout}" class="moblie-header-toggle-menu-content">
+            로그아웃
+          </a>
+          <a th:if="${session.admin != null}" th:href="@{/guest/joinForm}" class="moblie-header-toggle-menu-content">
+            회원가입
+          </a>
+        </div>
     </div>
 </div>
 </body>

@@ -1,317 +1,962 @@
-.commentheaderContainer{
-    padding: 12px 10px 3px; 
-    width: 100%;
-    height: auto;
-    border-top: 1px solid #ddd;
-    margin-bottom: 30px;
+@media (min-width: 1024px) {
+    .commentheaderContainer{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        border-top: 1px solid #ddd;
+        margin-bottom: 30px;
+    }
+    
+    .comment{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .commentTextBox{
+        width: 100%;
+        height: auto;
+        display: flex;
+        font-size: 13px;
+    }
+    
+    .commentTextL{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        height: auto;
+    }
+    .commentTextR{
+        flex: 1;
+        height: auto;
+    }
+    
+    .commentUpdateBtnBox{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: end;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .commentWriteContainer{
+        width: 100%;
+        height: 300px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentWriteInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentWriteName{
+        margin-right: 15px;
+    }
+    
+    .commentInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentLabel{
+        margin-right: 3px;
+    }
+    
+    .commentWriter{
+        padding: 5px;
+        margin: 0;
+        max-width: 800px;
+        min-width: 800px;
+        height: 190px;
+        resize: none;
+        border: 1px solid #ddd;
+    }
+    
+    .commentWriter:focus {
+        outline: none;
+    }
+    
+    .commentWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
+    
+    
+    
+    .passwordModal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-box-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        width: 500px;
+        height: auto;
+    
+    }
+    
+    .modal-header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .modalPassword{
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        height: 30px;
+        font-size: 20px;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .modalPasswordSubmit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background-color: #000000;
+        color: #ddd;
+        width: 100px;
+        height: 25px;
+        margin-left: 10px;
+        margin-right: 10prx;
+        cursor: pointer;
+    }
+    .contentPassword{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .contentValue{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        display: flex;
+        width: 100%;
+    }
+    
+    .modal-button{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+    }
+    
+    .detailbtn{
+        cursor: pointer;
+    }
+    
+    .commentUpdateContainer{
+        width: 100%;
+        height: 300px;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentUpdateInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentUpdateName{
+        margin-right: 15px;
+    }
+    
+    .commentUpdateInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentUpdateLabel{
+        margin-right: 3px;
+    }
+    
+    .commentUpdateWriter{
+        padding: 5px;
+        margin: 0;
+        width: 760px;
+        max-width: 760px;
+        height: 190px;
+        resize: none;
+        border: 1px solid #ddd;
+        font-size: 13px;
+    }
+    
+    .commentUpdateWriter:focus {
+        outline: none;
+    }
+    
+    .commentUpdateWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentUpdateWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
+    
+    .commentUpdate{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .commentDeleteContainer{
+        width: 100%;
+        height: auto;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentDeleteInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentDeleteName{
+        margin-right: 15px;
+    }
+    
+    .commentDeleteInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentDeleteLabel{
+        margin-right: 3px;
+    }
+    
+    
+    .commentDeleteWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentDeleteWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
 }
-
-.comment{
-    padding: 12px 10px 3px; 
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #ddd;
+@media (max-width: 1023px) {
+    .commentheaderContainer{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        border-top: 1px solid #ddd;
+        margin-bottom: 30px;
+    }
+    
+    .comment{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .commentTextBox{
+        width: 100%;
+        height: auto;
+        display: flex;
+        font-size: 13px;
+    }
+    
+    .commentTextL{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+        height: auto;
+    }
+    .commentTextR{
+        flex: 1;
+        height: auto;
+    }
+    
+    .commentUpdateBtnBox{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: end;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .commentWriteContainer{
+        width: 100%;
+        height: 300px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentWriteInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentWriteName{
+        margin-right: 15px;
+    }
+    
+    .commentInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentLabel{
+        margin-right: 3px;
+    }
+    
+    .commentWriter{
+        padding: 5px;
+        margin: 0;
+        max-width: 800px;
+        min-width: 800px;
+        height: 190px;
+        resize: none;
+        border: 1px solid #ddd;
+    }
+    
+    .commentWriter:focus {
+        outline: none;
+    }
+    
+    .commentWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
+    
+    
+    
+    .passwordModal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-box-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        width: 500px;
+        height: auto;
+    
+    }
+    
+    .modal-header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .modalPassword{
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        height: 30px;
+        font-size: 20px;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .modalPasswordSubmit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background-color: #000000;
+        color: #ddd;
+        width: 100px;
+        height: 25px;
+        margin-left: 10px;
+        margin-right: 10prx;
+        cursor: pointer;
+    }
+    .contentPassword{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .contentValue{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        display: flex;
+        width: 100%;
+    }
+    
+    .modal-button{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+    }
+    
+    .detailbtn{
+        cursor: pointer;
+    }
+    
+    .commentUpdateContainer{
+        width: 100%;
+        height: 300px;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentUpdateInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentUpdateName{
+        margin-right: 15px;
+    }
+    
+    .commentUpdateInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentUpdateLabel{
+        margin-right: 3px;
+    }
+    
+    .commentUpdateWriter{
+        padding: 5px;
+        margin: 0;
+        width: 760px;
+        max-width: 760px;
+        height: 190px;
+        resize: none;
+        border: 1px solid #ddd;
+        font-size: 13px;
+    }
+    
+    .commentUpdateWriter:focus {
+        outline: none;
+    }
+    
+    .commentUpdateWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentUpdateWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
+    
+    .commentUpdate{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .commentDeleteContainer{
+        width: 100%;
+        height: auto;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentDeleteInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentDeleteName{
+        margin-right: 15px;
+    }
+    
+    .commentDeleteInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentDeleteLabel{
+        margin-right: 3px;
+    }
+    
+    
+    .commentDeleteWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentDeleteWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
 }
-
-.commentTextBox{
-    width: 100%;
-    height: auto;
-    display: flex;
-    font-size: 13px;
-}
-
-.commentTextL{
-    display: flex;
-    flex-direction: column;
-    width: 250px;
-    height: auto;
-}
-.commentTextR{
-    flex: 1;
-    height: auto;
-}
-
-.commentUpdateBtnBox{
-    display: flex;
-    width: 100%;
-    height: 50px;
-    align-items: center;
-    justify-content: end;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.commentWriteContainer{
-    width: 100%;
-    height: 300px;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.commentWriteInfo{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    font-size: 13px;
-}
-
-.commentWriteName{
-    margin-right: 15px;
-}
-
-.commentInput{
-    padding: 7px 5px;
-    border: 1px solid #ddd;
-}
-
-.commentLabel{
-    margin-right: 3px;
-}
-
-.commentWriter{
-    padding: 5px;
-    margin: 0;
-    max-width: 800px;
-    min-width: 800px;
-    height: 190px;
-    resize: none;
-    border: 1px solid #ddd;
-}
-
-.commentWriter:focus {
-    outline: none;
-}
-
-.commentWriterbtnbox{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: end;
-    padding-top: 10px;
-}
-
-.commentWriterbtn{
-    border: 1px solid black;
-    border-radius: 3px;
-    width: 78px;
-    height: 39px;
-}
-
-
-
-.passwordModal{
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-box-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    width: 500px;
-    height: auto;
-
-}
-
-.modal-header{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modalPassword{
-    border: 1px solid #ddd;
-    border-radius: 3px;
-    height: 30px;
-    font-size: 20px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modalPasswordSubmit{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    background-color: #000000;
-    color: #ddd;
-    width: 100px;
-    height: 25px;
-    margin-left: 10px;
-    margin-right: 10prx;
-    cursor: pointer;
-}
-.contentPassword{
-    width: 100%;
-    height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-}
-
-.contentValue{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    display: flex;
-    width: 100%;
-}
-
-.modal-button{
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 50px;
-}
-
-.detailbtn{
-    cursor: pointer;
-}
-
-.commentUpdateContainer{
-    width: 100%;
-    height: 300px;
-    display: none;
-    align-items: center;
-    flex-direction: column;
-}
-
-.commentUpdateInfo{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    font-size: 13px;
-}
-
-.commentUpdateName{
-    margin-right: 15px;
-}
-
-.commentUpdateInput{
-    padding: 7px 5px;
-    border: 1px solid #ddd;
-}
-
-.commentUpdateLabel{
-    margin-right: 3px;
-}
-
-.commentUpdateWriter{
-    padding: 5px;
-    margin: 0;
-    width: 760px;
-    max-width: 760px;
-    height: 190px;
-    resize: none;
-    border: 1px solid #ddd;
-    font-size: 13px;
-}
-
-.commentUpdateWriter:focus {
-    outline: none;
-}
-
-.commentUpdateWriterbtnbox{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: end;
-    padding-top: 10px;
-}
-
-.commentUpdateWriterbtn{
-    border: 1px solid black;
-    border-radius: 3px;
-    width: 78px;
-    height: 39px;
-}
-
-.commentUpdate{
-    padding: 12px 10px 3px; 
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #ddd;
-}
-
-.commentDeleteContainer{
-    width: 100%;
-    height: auto;
-    display: none;
-    align-items: center;
-    flex-direction: column;
-}
-
-.commentDeleteInfo{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    font-size: 13px;
-}
-
-.commentDeleteName{
-    margin-right: 15px;
-}
-
-.commentDeleteInput{
-    padding: 7px 5px;
-    border: 1px solid #ddd;
-}
-
-.commentDeleteLabel{
-    margin-right: 3px;
-}
-
-
-.commentDeleteWriterbtnbox{
-    width: 100%;
-    height: 50px;
-    display: flex;
-    justify-content: end;
-    padding-top: 10px;
-}
-
-.commentDeleteWriterbtn{
-    border: 1px solid black;
-    border-radius: 3px;
-    width: 78px;
-    height: 39px;
+@media (max-width: 540px) {
+    .commentheaderContainer{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        border-top: 1px solid #ddd;
+        margin-bottom: 30px;
+    }
+    
+    .comment{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .commentTextBox{
+        width: 100%;
+        height: auto;
+        display: flex;
+        font-size: 13px;
+    }
+    
+    .commentTextL{
+        display: flex;
+        flex-direction: column;
+        width: 120px;
+        height: auto;
+    }
+    .commentTextR{
+        flex: 1;
+        height: auto;
+    }
+    
+    .commentUpdateBtnBox{
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: end;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .commentWriteContainer{
+        width: 100%;
+        height: 300px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentWriteInfo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    
+    .commentWriteName{
+        margin-right: 15px;
+    }
+    
+    .commentInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentLabel{
+        margin-right: 3px;
+    }
+    
+    .commentWriter{
+        padding: 5px;
+        margin: 0;
+        min-width: 100%;
+        height: 190px;
+        resize: none;
+        border: 1px solid #ddd;
+    }
+    
+    .commentWriter:focus {
+        outline: none;
+    }
+    
+    .commentWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .commentWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
+    
+    
+    
+    .passwordModal{
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .modal-box-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #fefefe;
+        margin: 75% auto;
+        padding: 20px;
+        width: 100%;
+        height: auto;
+    
+    }
+    
+    .modal-header{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .modalPassword{
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        height: 30px;
+        font-size: 20px;
+    }
+    
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
+    .modalPasswordSubmit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        background-color: #000000;
+        color: #ddd;
+        width: 100px;
+        height: 25px;
+        margin-left: 10px;
+        margin-right: 10prx;
+        cursor: pointer;
+    }
+    .contentPassword{
+        width: 100%;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+    }
+    
+    .contentValue{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 15px;
+        display: flex;
+        width: 100%;
+    }
+    
+    .modal-button{
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 50px;
+    }
+    
+    .detailbtn{
+        cursor: pointer;
+    }
+    
+    .commentUpdateContainer{
+        width: 100%;
+        height: 300px;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentUpdateInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+        margin: 10px 0 10px 0;
+    }
+    
+    .commentUpdateName{
+        margin-right: 15px;
+    }
+    
+    .commentUpdateInput{
+        width: 140px;
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentUpdateLabel{
+        margin-right: 3px;
+    }
+    
+    .commentUpdateWriter{
+        padding: 5px;
+        margin: 0;
+        max-width: 100%;
+        min-width: 100%;
+        height: 200px;
+        resize: none;
+        border: 1px solid #ddd;
+        font-size: 13px;
+    }
+    
+    .commentUpdateWriter:focus {
+        outline: none;
+    }
+    
+    .commentUpdateWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentUpdateWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
+    
+    .commentUpdate{
+        padding: 12px 10px 3px; 
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .commentDeleteContainer{
+        width: 100%;
+        height: auto;
+        display: none;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .commentDeleteInfo{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        font-size: 13px;
+    }
+    
+    .commentDeleteName{
+        margin-right: 15px;
+    }
+    
+    .commentDeleteInput{
+        padding: 7px 5px;
+        border: 1px solid #ddd;
+    }
+    
+    .commentDeleteLabel{
+        margin-right: 3px;
+    }
+    
+    
+    .commentDeleteWriterbtnbox{
+        width: 100%;
+        height: 50px;
+        display: flex;
+        justify-content: end;
+        padding-top: 10px;
+    }
+    
+    .commentDeleteWriterbtn{
+        border: 1px solid black;
+        border-radius: 3px;
+        width: 78px;
+        height: 39px;
+    }
 }

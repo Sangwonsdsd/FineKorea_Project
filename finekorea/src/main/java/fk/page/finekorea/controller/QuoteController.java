@@ -33,7 +33,11 @@ public class QuoteController {
     //견적문의 리스트 페이지
     @GetMapping("/guest/quoteList")
     public String quoteList(Model model, @RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "5") int size) {
+
+
         model.addAttribute("quoteList", quoteService.getQuotelist(PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "id"))));
+
+
         return "quoteContact/quoteContactList";
     }
 }
