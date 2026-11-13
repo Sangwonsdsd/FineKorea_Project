@@ -347,3 +347,14 @@
         font-size: 35px;
     }
 }
+
+/* 메인 사진 슬라이드(5초마다 전환) */
+.photo-container.hero-slider{position:relative;}
+.photo-container.hero-slider .hero-slide{position:absolute;top:0;left:0;opacity:0;transition:opacity 1s ease-in-out;}
+.photo-container.hero-slider .hero-slide.active{opacity:1;}
+@media (max-width: 1023px){
+    .photo-container.hero-slider{height:auto;aspect-ratio:20/11;}
+}
+@media (prefers-reduced-motion: reduce){
+    .photo-container.hero-slider .hero-slide{transition:none;}
+}

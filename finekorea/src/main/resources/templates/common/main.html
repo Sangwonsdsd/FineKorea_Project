@@ -32,12 +32,17 @@
     <link rel="stylesheet" th:href="@{/css/common/main.css}" >
     <!--JS-->
     <script type="text/javascript" th:src="@{/js/main.js}"></script>
+    <script type="text/javascript" th:src="@{/js/heroSlider.js}" defer></script>
 </head>
 <body>
     <div th:insert="~{common/header.html}" id="header"></div>
     <!--photo-->
-    <div class="photo-container">
-        <img class="photo-main" th:src="@{/image/logoImg/pexels-suhel-vba-3659681 (1).jpg}" alt="배경사진">
+    <div class="photo-container hero-slider" id="heroSlider">
+        <img class="photo-main hero-slide active" th:src="@{/image/hero/hero1.jpg}" alt="파인코리아 차렵이불" fetchpriority="high">
+        <img class="photo-main hero-slide" th:src="@{/image/hero/hero2.jpg}" alt="파인코리아 차렵이불" loading="lazy">
+        <img class="photo-main hero-slide" th:src="@{/image/hero/hero3.jpg}" alt="파인코리아 차렵이불" loading="lazy">
+        <img class="photo-main hero-slide" th:src="@{/image/hero/hero4.jpg}" alt="파인코리아 차렵이불" loading="lazy">
+        <img class="photo-main hero-slide" th:src="@{/image/hero/hero5.jpg}" alt="파인코리아 호텔이불" loading="lazy">
     </div>
     <!--연락처 및 문의-->
     <div class="main-container">
