@@ -1,7 +1,9 @@
 spring:
   config:
-    # 환경 변수를 쓸 수 없는 호스팅용: 프로젝트 밖(작업 디렉터리)의 비밀 설정 파일을 선택적으로 읽음
-    import: optional:file:./config/secrets.properties
+    # 환경 변수를 쓸 수 없는 호스팅용: 비밀 설정 파일을 선택적으로 읽음 (파일이 없으면 무시)
+    # 1) 로컬 개발: 실행 위치 기준 ./config/secrets.properties
+    # 2) 카페24 서버: war 재배포에도 유지되도록 war 밖(홈 디렉터리)에 둔 파일
+    import: optional:file:./config/secrets.properties,optional:file:/home/hosting_users/hjungcwoo/config/secrets.properties
   mail:
     # Google smtp server 사용
     host: smtp.gmail.com
