@@ -3,6 +3,8 @@ package fk.page.finekorea.controller;
 
 import fk.page.finekorea.dto.QuoteDto;
 import fk.page.finekorea.service.QuoteService;
+import fk.page.finekorea.service.QuoteSpamGuard;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,6 +19,9 @@ public class QuoteController {
     @Autowired
     private QuoteService quoteService;
 
+    @Autowired
+    private QuoteSpamGuard quoteSpamGuard;
+
     //견적문의 페이지
     @GetMapping("/guest/quote")
     public String quote() {
@@ -24,10 +29,24 @@ public class QuoteController {
     }
 
     @PostMapping("/guest/quote")
-    public String quote(QuoteDto quoteDto){
-        quoteService.savePost(quoteDto);
-        quoteService.sendEmail(quoteDto);
-        return "redirect:/guest/quoteList";
+    public String quote(QuoteDto quoteDto,
+                        @RequestParam(value = "website", required = false) String honeypot,
+                        @RequestParam(value = "formTs", required = false) String formTs,
+                        HttpServletRequest request){
+        QuoteSpamGuard.Result result = quoteSpamGuard.check(quoteDto, honeypot, formTs, request.getRemoteAddr());
+        switch (result) {
+            case OK:
+                quoteService.savePost(quoteDto);
+                quoteService.sendEmail(quoteDto);
+                return "redirect:/guest/quoteList";
+            case BOT:
+                // 봇에게는 성공한 것처럼 보이게 하고 저장/메일 전송은 하지 않음
+                return "redirect:/guest/quoteList";
+            case RATE_LIMITED:
+                return "redirect:/guest/quote?error=limit";
+            default:
+                return "redirect:/guest/quote?error=invalid";
+        }
     }
 
     //견적문의 리스트 페이지

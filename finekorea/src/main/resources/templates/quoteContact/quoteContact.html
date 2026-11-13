@@ -32,6 +32,12 @@
         </div>
     </div>
     <form method="post" id="postQuote" class="postQuote" onsubmit="return false;">
+        <!-- 스팸 방지: 사람에게 보이지 않는 입력칸(허니팟)과 페이지 열람 시각 -->
+        <div style="position:absolute; left:-10000px; top:auto; width:1px; height:1px; overflow:hidden;" aria-hidden="true">
+            <label for="quoteWebsite">website</label>
+            <input type="text" id="quoteWebsite" name="website" tabindex="-1" autocomplete="off" value="">
+        </div>
+        <input type="hidden" id="quoteFormTs" name="formTs" value="">
         <div class="quoteContact-container">
             <div class="quoteContact-box">
                 <div class="quoteContact-title">
