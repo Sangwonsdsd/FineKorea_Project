@@ -2,9 +2,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const slides = document.querySelectorAll('#heroSlider .hero-slide');
     if (slides.length < 2) return;
-    // 모션 줄이기 설정을 쓰는 사용자에게는 자동 전환하지 않음
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
+    // 모션 줄이기 설정이어도 5초마다 전환은 함 (이 경우 CSS가 페이드 없이 바로 바꿈)
     let current = 0;
     const INTERVAL_MS = 5000;
 
