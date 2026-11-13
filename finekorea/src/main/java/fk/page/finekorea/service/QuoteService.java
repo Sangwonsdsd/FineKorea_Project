@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.stereotype.Service;
 
 @AllArgsConstructor
@@ -19,7 +20,6 @@ public class QuoteService {
 
     private QuoteRepository quoteRepository;
     private final JavaMailSender javaMailSender;
-    private static final String senderEmail= "32144733@dankook.ac.kr";
     private static final String email= "hjungcwoo@naver.com";
 
 
@@ -35,7 +35,8 @@ public class QuoteService {
         MimeMessage message = javaMailSender.createMimeMessage();
 
         try {
-            message.setFrom(senderEmail);
+            // 보내는 사람 주소는 spring.mail.username(환경 변수 MAIL_USERNAME) 값을 사용
+            message.setFrom(((JavaMailSenderImpl) javaMailSender).getUsername());
             message.setRecipients(MimeMessage.RecipientType.TO, email);
             message.setSubject("[홈페이지 문의]" + quoteDto.getName());  // 제목 설정
             String body = "";
