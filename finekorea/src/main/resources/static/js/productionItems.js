@@ -1,77 +1,55 @@
-let current = 0;
-let number = 1;
-
-
+// 각 슬라이드의 이동 폭(px): 화면 너비에 따라 다름
 const slideWidth3 = -150;
 const slideWidth2 = -200;
-const slideWidth = -325; // 각 슬라이드의 너비
+const slideWidth = -325;
 
-function prev(num) {
-    const carousel_Length = document.querySelectorAll('.carousel-cell' + num).length - 1;
-    const carousel = document.querySelector("#carousel" + num);
-    if(window.innerWidth >= 1024){
-        if (current !== 0 && number == num) {
-            current--;
-            carousel.style.transform = `translateX(${current * slideWidth}px)`;
-        } else {
-            current = carousel_Length;
-            carousel.style.transform = `translateX(${carousel_Length * slideWidth}px)`;
-        }
-        number = num
-    }else if(window.innerWidth > 540){
-        if (current !== 0 && number == num) {
-            current--;
-            carousel.style.transform = `translateX(${current * slideWidth2}px)`;
-        } else {
-            current = carousel_Length;
-            carousel.style.transform = `translateX(${carousel_Length * slideWidth2}px)`;
-        }
-        number = num
-    }else{
-        if (current !== 0 && number == num) {
-            current--;
-            carousel.style.transform = `translateX(${current * slideWidth3}px)`;
-        } else {
-            current = carousel_Length;
-            carousel.style.transform = `translateX(${carousel_Length * slideWidth3}px)`;
-        }
-        number = num
-    }
+// 캐러셀별 현재 위치(인덱스). 캐러셀 id를 키로 사용해 서로 영향을 주지 않도록 분리
+// (예전에는 전역 변수 current/number 하나를 모든 캐러셀이 공유해서,
+//  다른 상품으로 넘어가면 첫 클릭이 "초기화"로만 동작해 두 번씩 눌러야 했음)
+const slidePositions = {};
+
+function getSlideWidth() {
+    if (window.innerWidth >= 1024) return slideWidth;
+    if (window.innerWidth > 540) return slideWidth2;
+    return slideWidth3;
 }
 
-function next(num) {
-    const carousel_Length = document.querySelectorAll('.carousel-cell'+num).length - 1;
-    const carousel = document.querySelector("#carousel" + num);
+/**
+ * dir: -1(이전) / 1(다음)
+ * carouselId: 움직일 .carousel 요소의 id
+ * cellClass: 그 캐러셀 안 슬라이드 하나하나의 class 이름
+ */
+function moveSlide(carouselId, cellClass, dir) {
+    const carousel = document.getElementById(carouselId);
+    if (!carousel) return;
+    const last = document.querySelectorAll('.' + cellClass).length - 1;
+    if (last <= 0) return; // 이미지가 1장이면 이동할 것이 없음
 
-    if(window.innerWidth >= 1024){
-        if(current !== carousel_Length && number == num){
-            carousel.style.transform = `translateX(${(current + 1) * slideWidth}px)`;
-            current++;
-        }else{
-            current = 0;
-            carousel.style.transform = `translateX(0px)`;
-        }
-        number = num
-    }else if(window.innerWidth > 540){
-        if(current !== carousel_Length && number == num){
-            carousel.style.transform = `translateX(${(current + 1) * slideWidth2}px)`;
-            current++;
-        }else{
-            current = 0;
-            carousel.style.transform = `translateX(0px)`;
-        }
-        number = num
-    }else{
-        if(current !== carousel_Length && number == num){
-            carousel.style.transform = `translateX(${(current + 1) * slideWidth3}px)`;
-            current++;
-        }else{
-            current = 0;
-            carousel.style.transform = `translateX(0px)`;
-        }
-        number = num
-    }
+    let index = (slidePositions[carouselId] || 0) + dir;
+    if (index > last) index = 0;      // 마지막에서 다음 -> 처음
+    if (index < 0) index = last;      // 처음에서 이전 -> 마지막
+
+    slidePositions[carouselId] = index;
+    carousel.style.transform = `translateX(${index * getSlideWidth()}px)`;
 }
+
+// 정적(하드코딩) 상품: #carousel{num}, .carousel-cell{num}
+function prev(num) { moveSlide('carousel' + num, 'carousel-cell' + num, -1); }
+function next(num) { moveSlide('carousel' + num, 'carousel-cell' + num, 1); }
+
+// DB에서 불러온 상품: #carouselId{num}, .carousel-cellNew{num}
+function prevWrite(num) { moveSlide('carouselId' + num, 'carousel-cellNew' + num, -1); }
+function nextWrite(num) { moveSlide('carouselId' + num, 'carousel-cellNew' + num, 1); }
+
+// 화면 크기가 바뀌면 현재 위치를 새 폭으로 다시 맞춤
+window.addEventListener('resize', function () {
+    Object.keys(slidePositions).forEach(function (id) {
+        const carousel = document.getElementById(id);
+        if (carousel) {
+            carousel.style.transform = `translateX(${slidePositions[id] * getSlideWidth()}px)`;
+        }
+    });
+});
 
 $(function() {
     $(window).scroll(function(){
@@ -87,77 +65,8 @@ $(function() {
             scrollTop : 0
         }, 100);
         return false;
-    });    
+    });
 });
-
-
-function prevWrite(num) {
-    const carousel_Length = document.querySelectorAll('.carousel-cellNew' + num).length - 1;
-    const carousel = document.querySelector("#carouselId" + num);
-    if(window.innerWidth >= 1024){
-        if (current !== 0 && number == num) {
-            current--;
-            carousel.style.transform = `translateX(${current * slideWidth}px)`;
-        } else {
-            current = carousel_Length;
-            carousel.style.transform = `translateX(${carousel_Length * slideWidth}px)`;
-        }
-        number = num
-    }else if(window.innerWidth > 540){
-        if (current !== 0 && number == num) {
-            current--;
-            carousel.style.transform = `translateX(${current * slideWidth2}px)`;
-        } else {
-            current = carousel_Length;
-            carousel.style.transform = `translateX(${carousel_Length * slideWidth2}px)`;
-        }
-        number = num
-    }else{
-        if (current !== 0 && number == num) {
-            current--;
-            carousel.style.transform = `translateX(${current * slideWidth3}px)`;
-        } else {
-            current = carousel_Length;
-            carousel.style.transform = `translateX(${carousel_Length * slideWidth3}px)`;
-        }
-        number = num
-    }
-    
-}
-
-function nextWrite(num) {
-    const carousel_Length = document.querySelectorAll('.carousel-cellNew'+num).length - 1;
-    const carousel = document.querySelector("#carouselId" + num);
-    if(window.innerWidth >= 1024){
-        if(current !== carousel_Length && number == num){
-            carousel.style.transform = `translateX(${(current + 1) * slideWidth}px)`;
-            current++;
-        }else{
-            current = 0;
-            carousel.style.transform = `translateX(0px)`;
-        }
-        number = num
-    }else if(window.innerWidth > 540){
-        if(current !== carousel_Length && number == num){
-            carousel.style.transform = `translateX(${(current + 1) * slideWidth2}px)`;
-            current++;
-        }else{
-            current = 0;
-            carousel.style.transform = `translateX(0px)`;
-        }
-        number = num
-    }else {
-        if(current !== carousel_Length && number == num){
-            carousel.style.transform = `translateX(${(current + 1) * slideWidth3}px)`;
-            current++;
-        }else{
-            current = 0;
-            carousel.style.transform = `translateX(0px)`;
-        }
-        number = num
-    }
-    
-}
 
 
 $(document).ready(function(){
@@ -181,6 +90,3 @@ function handleFileUpload(){
     uploadResult.append(str);
 
 }
-
-
-
